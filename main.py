@@ -39,7 +39,7 @@ def encode(password):
     return encoded_password
 
 
-def decode(password):
+def decode(password):  # LG decoder
     decoded_password = ""
     for digit in password:
         decoded_digit = str((int(digit) - 3) % 10)
