@@ -1,6 +1,6 @@
 def main():
-    encoded_password = ""  # Define variable outside of if blocks
-    password = ""  # Define variable outside of if blocks
+    encoded_password = ""
+    password = ""
 
     while True:
         print("\nMenu")
@@ -8,11 +8,11 @@ def main():
         print("1. Encode password")
         print("2. Decode password")
         print("3. Quit\n")
-        choice = input("Please enter an option:")
+        choice = input("Please enter an option:")  # Users can enter their choice after the menu is displayed.
 
         if choice == "1":
             password = input("Enter password to encode: ")
-            encoded_password = encode(password)
+            encoded_password = encode(password) # Stores the password and user is made aware
             print("Your password has been encoded and stored!")
 
         elif choice == "2":
@@ -22,11 +22,11 @@ def main():
                                                                                            decoded_password))
 
             else:
-                print("Please encode a password first.")
+                print("Please encode a password first.")  # I added an option in case the user picked 2 before 1
 
 
         elif choice == "3":
-            break
+            break  # program stops if option 3 is chosen
 
         else:
             print("Invalid choice. Please try again.")
@@ -39,13 +39,6 @@ def encode(password):
         encoded_password += encoded_digit
     return encoded_password
 
-def decode(encoded_password):
-    decoded_password = ""
-    for digit in encoded_password:
-        decoded_digit = str((int(digit) - 3) % 10)
-        decoded_password += decoded_digit
-    return decoded_password
 
 if __name__ == "__main__":
     main()
-
