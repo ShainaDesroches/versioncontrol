@@ -12,18 +12,17 @@ def main():
 
         if choice == "1":
             password = input("Enter password to encode: ")
-            encoded_password = encode(password) # Stores the password and user is made aware
+            encoded_password = encode(password)  # Stores the password and user is made aware
             print("Your password has been encoded and stored!")
 
         elif choice == "2":
             if encoded_password:
                 decoded_password = decode(encoded_password)
                 print("The encoded password is {}, and the original password is {}.".format(encoded_password,
-                                                                                           decoded_password))
+                                                                                            decoded_password))
 
             else:
                 print("Please encode a password first.")  # I added an option in case the user picked 2 before 1
-
 
         elif choice == "3":
             break  # program stops if option 3 is chosen
@@ -37,7 +36,16 @@ def encode(password):
     for digit in password:
         encoded_digit = str((int(digit) + 3) % 10)
         encoded_password += encoded_digit
+    print(encoded_password)
     return encoded_password
+
+
+def decode(password):
+    decoded_password = ""
+    for digit in password:
+        decoded_digit = str((int(digit) - 3) % 10)
+        decoded_password += decoded_digit
+    return decoded_password
 
 
 if __name__ == "__main__":
